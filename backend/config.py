@@ -1,26 +1,21 @@
 """Configuration for the LLM Council."""
-
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# OpenRouter API key
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+# Ollama API endpoint (local)
+OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434/api/chat")
 
-# Council members - list of OpenRouter model identifiers
+# Council members - list of Ollama model identifiers
 COUNCIL_MODELS = [
-    "openai/gpt-5.1",
-    "google/gemini-3-pro-preview",
-    "anthropic/claude-sonnet-4.5",
-    "x-ai/grok-4",
+    "qwen3:4b",
+    "mistral:7b",
+
 ]
 
 # Chairman model - synthesizes final response
-CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
-
-# OpenRouter API endpoint
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+CHAIRMAN_MODEL = "phi4:latest"
 
 # Data directory for conversation storage
 DATA_DIR = "data/conversations"
