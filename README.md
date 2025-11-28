@@ -32,15 +32,36 @@ npm install
 cd ..
 ```
 
-### 2. Configure API Key
+### 2. Configure Ollama
 
-Create a `.env` file in the project root:
+Make sure Ollama is installed and running on your system.
 
+**Install Ollama:**
+- Download from [ollama.ai](https://ollama.ai/)
+- Or install via command line:
 ```bash
-OPENROUTER_API_KEY=sk-or-v1-...
+  # Linux/Mac
+  curl -fsSL https://ollama.ai/install.sh | sh
+  
+  # Windows
+  # Download installer from ollama.ai
 ```
 
-Get your API key at [openrouter.ai](https://openrouter.ai/). Make sure to purchase the credits you need, or sign up for automatic top up.
+**Pull required models:**
+```bash
+ollama pull phi4:latest
+ollama pull qwen3:4b
+ollama pull mistral:7b
+```
+
+**Start Ollama service:**
+```bash
+ollama serve
+```
+
+The application will connect to Ollama at `http://localhost:11434` by default.
+
+**Note:** You can use any models available in Ollama. Just update the model names in the code to match your installed models.
 
 ### 3. Configure Models (Optional)
 
